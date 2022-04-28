@@ -327,6 +327,15 @@ window.addEventListener('load', async () => {
 	
 function checkUser(emailval, passval){
 	var res=0;
+	console.log(accounts[0]);
+	console.log(emailval);
+	var areEqual = emailval.toUpperCase() === accounts[0].toUpperCase()
+	console.log(areEqual);
+	
+	if(areEqual===false){
+		return 0;
+	}
+	
 	for(let i=0; i<profs.length;i++){
 		if(profs[i]==emailval ){
 			res=1;
@@ -356,15 +365,16 @@ function addUser(){
 		alert("Invalid Password");
 	}
 	else{
-		console.log("User not Registered");
+		// console.log("User not Registered");
 	
-		contract.methods.addUsers(emailval, passval).send({from: accounts[0]}).then(async function(){
-			$("#addedUser").html="New user added";
-			console.log("added new user successfully");
-		});
-		contract.methods.viewUsers().call().then(function(x){
-			console.log(x[0]);
-		});
+		// contract.methods.addUsers(emailval, passval).send({from: accounts[0]}).then(async function(){
+		// 	$("#addedUser").html="New user added";
+		// 	console.log("added new user successfully");
+		// });
+		// contract.methods.viewUsers().call().then(function(x){
+		// 	console.log(x[0]);
+		// });
+		alert("Account not registered as a Validator!!");
 	}
 }
 
