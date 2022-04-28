@@ -171,14 +171,14 @@ function createlistitems(skillname, skillcert, skillendor, username){
   var current_tasks = document.querySelectorAll(".delete");
   for(var i=0; i<current_tasks.length; i++){
       current_tasks[i].onclick = function(){
-          contract = new web3.eth.Contract(abi, contractAddress);
-            contract.methods.endorseSkills(skillname, skillcert, '0x7DD03D0Ea0dC1EDB92Cc0Ff4421C2F60c671c814').send({from: accounts[0]}).then(function(){
-                console.log("Skill endorsed successfully");
-                alert("Skill successfully endorsed");
-                window.location.reload();
-                this.parentNode.remove();
-            });
-
+        //   contract = new web3.eth.Contract(abi, contractAddress);
+        //     contract.methods.endorseSkills(skillname, skillcert, '0x7DD03D0Ea0dC1EDB92Cc0Ff4421C2F60c671c814').send({from: accounts[0]}).then(function(){
+        //         console.log("Skill endorsed successfully");
+        //         alert("Skill successfully endorsed");
+        //         window.location.reload();
+        //         this.parentNode.remove();
+        //     });
+		this.parentNode.remove();
       }
   }
 }
@@ -253,6 +253,7 @@ window.addEventListener('load', async () => {
   alert("Login Successful");
 	accounts = await ethereum.request({ method: 'eth_accounts' });
 	console.log(accounts[0]);
+	document.getElementById('accountname').innerHTML+=accounts[0];
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
         try {

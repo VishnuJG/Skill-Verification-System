@@ -227,6 +227,7 @@ window.addEventListener('load', async () => {
   alert("Login Successful");
 	accounts = await ethereum.request({ method: 'eth_accounts' });
 	console.log(accounts[0]);
+	document.getElementById('accountname').innerHTML+=accounts[0];
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
         try {
